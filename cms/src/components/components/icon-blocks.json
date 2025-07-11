@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_icon_blocks",
+  "info": {
+    "displayName": "Icon Blocks"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

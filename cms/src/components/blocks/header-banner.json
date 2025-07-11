@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_header_banners",
+  "info": {
+    "displayName": "Header Banner"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "string"
+    },
+    "mail": {
+      "type": "email"
+    },
+    "links": {
+      "type": "component",
+      "component": "components.social-media-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

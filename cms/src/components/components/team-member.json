@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_components_team_members",
+  "info": {
+    "displayName": "Team Member"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "socialMediaLinks": {
+      "type": "component",
+      "component": "components.social-media-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

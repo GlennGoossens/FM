@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_sections",
+  "info": {
+    "displayName": "Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraphs": {
+      "type": "component",
+      "component": "components.paragraph-with-image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

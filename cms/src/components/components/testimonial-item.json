@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_testimonial_items",
+  "info": {
+    "displayName": "Testimonial Item"
+  },
+  "options": {},
+  "attributes": {
+    "stars": {
+      "type": "decimal",
+      "default": 5,
+      "min": 0,
+      "max": 5
+    },
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "text": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

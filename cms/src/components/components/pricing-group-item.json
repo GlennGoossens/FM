@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_components_pricing_group_items",
+  "info": {
+    "displayName": "Pricing Group Item"
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "link": {
+      "type": "component",
+      "component": "components.link",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

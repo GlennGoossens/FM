@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_pricings",
+  "info": {
+    "displayName": "Pricing"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "groups": {
+      "type": "component",
+      "component": "components.pricing-group",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

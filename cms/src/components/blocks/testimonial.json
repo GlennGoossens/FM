@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_testimonials",
+  "info": {
+    "displayName": "Testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "components.testimonial-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

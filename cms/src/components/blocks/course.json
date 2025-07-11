@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_courses",
+  "info": {
+    "displayName": "Course"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "component",
+      "component": "components.course-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
