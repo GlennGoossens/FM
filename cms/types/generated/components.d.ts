@@ -23,6 +23,17 @@ export interface BlocksCourse extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksFaq extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    FaqItem: Schema.Attribute.Component<'components.faq-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksGallery extends Struct.ComponentSchema {
   collectionName: 'components_blocks_galleries';
   info: {
@@ -142,6 +153,20 @@ export interface ComponentsCourseItem extends Struct.ComponentSchema {
     link: Schema.Attribute.Component<'components.link', false>;
     text: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_components_faq_items';
+  info: {
+    displayName: 'FAQ Item';
+  };
+  attributes: {
+    Answer: Schema.Attribute.Text;
+    Category: Schema.Attribute.Enumeration<
+      ['Algemeen', 'Personal Training', 'WOD']
+    >;
+    Question: Schema.Attribute.String;
   };
 }
 
@@ -282,6 +307,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blocks.contact': BlocksContact;
       'blocks.course': BlocksCourse;
+      'blocks.faq': BlocksFaq;
       'blocks.gallery': BlocksGallery;
       'blocks.header-banner': BlocksHeaderBanner;
       'blocks.hero': BlocksHero;
@@ -292,6 +318,7 @@ declare module '@strapi/strapi' {
       'blocks.why-us': BlocksWhyUs;
       'components.button': ComponentsButton;
       'components.course-item': ComponentsCourseItem;
+      'components.faq-item': ComponentsFaqItem;
       'components.icon-blocks': ComponentsIconBlocks;
       'components.link': ComponentsLink;
       'components.paragraph': ComponentsParagraph;

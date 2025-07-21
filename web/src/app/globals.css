@@ -1614,9 +1614,9 @@ font-weight: 500;
 }
 
 /*--------------------------------------------------------------
-# Chefs
+# Team
 --------------------------------------------------------------*/
-.chefs .member {
+.team .member {
   text-align: center;
   margin-bottom: 20px;
   background: #343a40;
@@ -1624,7 +1624,7 @@ font-weight: 500;
   overflow: hidden;
 }
 
-.chefs .member .member-info {
+.team .member .member-info {
   opacity: 0;
   position: absolute;
   bottom: 0;
@@ -1634,7 +1634,7 @@ font-weight: 500;
   transition: 0.2s;
 }
 
-.chefs .member .member-info-content {
+.team .member .member-info-content {
   position: absolute;
   left: 0;
   right: 0;
@@ -1642,21 +1642,21 @@ font-weight: 500;
   transition: bottom 0.4s;
 }
 
-.chefs .member .member-info-content h4 {
+.team .member .member-info-content h4 {
   font-weight: 700;
   margin-bottom: 2px;
   font-size: 18px;
   color: #fff;
 }
 
-.chefs .member .member-info-content span {
+.team .member .member-info-content span {
   font-style: italic;
   display: block;
   font-size: 13px;
   color: #fff;
 }
 
-.chefs .member .social {
+.team .member .social {
   position: absolute;
   left: 0;
   bottom: -38px;
@@ -1666,37 +1666,227 @@ font-weight: 500;
   text-align: center;
 }
 
-.chefs .member .social a {
+.team .member .social a {
   transition: color 0.3s;
   color: #fff;
   margin: 0 10px;
   display: inline-block;
 }
 
-.chefs .member .social a:hover {
+.team .member .social a:hover {
   color: #b0b0b0;
 }
 
-.chefs .member .social i {
+.team .member .social i {
   font-size: 18px;
   margin: 0 2px;
 }
 
-.chefs .member:hover .member-info {
+.team .member:hover .member-info {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 212, 255, 0) 100%);
   opacity: 1;
   transition: 0.4s;
 }
 
-.chefs .member:hover .member-info-content {
+.team .member:hover .member-info-content {
   bottom: 60px;
   transition: bottom 0.4s;
 }
 
-.chefs .member:hover .social {
+.team .member:hover .social {
   bottom: 0;
   transition: bottom ease-in-out 0.4s;
 }
+
+/*--------------------------------------------------------------
+# Faq
+--------------------------------------------------------------*/
+.faq .faq-tabs .nav-pills {
+  display: inline-flex;
+  padding: 8px;
+  background-color: color-mix(in srgb, #b0b0b0, transparent 95%);
+  border-radius: 50px;
+}
+
+.faq .faq-tabs .nav-pills .nav-item {
+  margin: 0 5px;
+}
+
+.faq .faq-tabs .nav-pills .nav-item:first-child {
+  margin-left: 0;
+}
+
+.faq .faq-tabs .nav-pills .nav-item:last-child {
+  margin-right: 0;
+}
+
+.faq .faq-tabs .nav-pills .nav-link {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 500;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+}
+
+.faq .faq-tabs .nav-pills .nav-link:hover {
+  color: #26231d;
+}
+
+.faq .faq-tabs .nav-pills .nav-link.active {
+  background-color: #26231d;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq .faq-tabs .nav-pills .nav-link i {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .faq .faq-tabs .nav-pills {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .faq .faq-tabs .nav-pills .nav-item {
+    margin: 5px;
+  }
+}
+
+.faq .faq-list .faq-item {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: var(--surface-color);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq .faq-list .faq-item:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.faq .faq-list .faq-item h3 {
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #26231d;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.faq .faq-list .faq-item h3:hover {
+  background-color: color-mix(in srgb, #26231d, transparent 95%);
+}
+
+.faq .faq-list .faq-item h3 .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+  background-color: color-mix(in srgb, #26231d, transparent 85%);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq .faq-list .faq-item h3 .question {
+  flex: 1;
+}
+
+.faq .faq-list .faq-item h3 .faq-toggle {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  color: color-mix(in srgb, #b0b0b0, transparent 30%);
+  margin-left: 15px;
+}
+
+.faq .faq-list .faq-item .faq-content {
+  padding: 15px;
+  display: none;
+}
+
+.faq .faq-list .faq-item .faq-content p {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.faq .faq-list .faq-item .faq-content p:last-child {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.faq .faq-list .faq-item.faq-active h3 {
+  background-color: color-mix(in srgb, #26231d, transparent 90%);
+}
+
+.faq .faq-list .faq-item.faq-active h3 .faq-toggle {
+  transform: rotate(45deg);
+  color: #fff;
+}
+
+.faq .faq-list .faq-item.faq-active .faq-content {
+  display: block;
+}
+
+.faq .faq-cta {
+  background-color: color-mix(in srgb, #26231d, transparent 92%);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.faq .faq-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.faq .faq-cta .btn-primary {
+  background-color: #26231d;
+  border-color: #26231d;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.faq .faq-cta .btn-primary:hover {
+  background-color: color-mix(in srgb, #26231d, #000 15%);
+  border-color: color-mix(in srgb, #26231d, #000 15%);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+  .faq .faq-list .faq-item h3 {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .faq .faq-list .faq-item h3 .num {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+  }
+
+  .faq .faq-list .faq-item .faq-content .content-inner {
+    padding: 0 20px;
+  }
+
+  .faq .faq-list .faq-item .faq-content.faq-active .content-inner {
+    padding: 15px 20px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Contact
