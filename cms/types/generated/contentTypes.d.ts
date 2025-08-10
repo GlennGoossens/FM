@@ -426,6 +426,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.course',
         'blocks.contact',
         'blocks.about',
+        'blocks.training-form',
+        'blocks.team',
+        'blocks.faq',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

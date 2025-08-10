@@ -8,11 +8,11 @@
     "title": {
       "type": "string"
     },
-    "text": {
-      "type": "text"
-    },
     "icon": {
       "type": "string"
+    },
+    "content": {
+      "type": "blocks"
     }
   },
   "config": {}

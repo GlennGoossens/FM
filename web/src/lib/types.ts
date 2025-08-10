@@ -2,17 +2,21 @@ import { ServiceOfferProps } from "@/components/about/service-offer.component";
 import { ClassCardProps } from "@/components/about/class-card.component";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { FeatureBoxProps } from "@/components/about-us/feature-box.component";
+import { TestimonialItemProps } from "@/components/testimonials/testimonial-item.component";
+import { TeamMemberProps } from "@/components/team/team-member.component";
+import { FaqItemProps } from "@/components/faq/faq-item.component";
 
 type ComponentType =
     "blocks.hero" | 
     "blocks.about" | 
     "blocks.why-us" |
-    "blocks.testimonials" |
+    "blocks.testimonial" |
     "blocks.book-a-session" |
     "blocks.gallery" |
     "blocks.faq" |
     "blocks.team" |
-    "blocks.contact";
+    "blocks.contact" |
+    "blocks.training-form";
 
 interface Base<T extends ComponentType, D extends object = object> {
     __component: T;
@@ -30,7 +34,8 @@ BookASessionBlock |
 GalleryBlock | 
 FaqBlock | 
 TeamBlock | 
-ContactBlock;
+ContactBlock |
+TrainingFormBlock;
 
 export type HeroBlock = Base<"blocks.hero", {
     title: string;
@@ -52,8 +57,9 @@ export interface AboutUsBlock extends Base<"blocks.why-us">  {
     featureTitle: string;
     features: FeatureBoxProps[];
 }
-export interface TestimonialsBlock extends Base<"blocks.testimonials"> {
+export interface TestimonialsBlock extends Base<"blocks.testimonial"> {
     title: string;
+    items: TestimonialItemProps[];
 }
 export interface BookASessionBlock extends Base<"blocks.book-a-session"> {
     title: string;
@@ -63,12 +69,22 @@ export interface GalleryBlock extends Base<"blocks.gallery"> {
 }
 export interface FaqBlock extends Base<"blocks.faq"> {
     title: string;
+    subtitle: string;
+    contactText: string;
+    contactButton: ButtonObject;
+    items: FaqItemProps[];
 }
 export interface TeamBlock extends Base<"blocks.team"> {
     title: string;
+    subtitle: string;
+    teamMembers: TeamMemberProps[];
 }
 export interface ContactBlock extends Base<"blocks.contact"> {
     title: string;
+}
+export interface TrainingFormBlock extends Base<"blocks.training-form"> {
+    title: string;
+    subtitle: string;
 }
 
 export type ImageObject = {

@@ -1,5 +1,6 @@
 "use client";
 
+import { TrainingFormBlock } from "@/lib/types";
 import { useState, FormEvent } from "react";
 
 interface FormData {
@@ -29,7 +30,7 @@ interface FormData {
   privacy: boolean;
 }
 
-export default function BookASessionComponent() {
+export default function BookASessionComponent(props: TrainingFormBlock) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     firstname: "",
@@ -148,8 +149,8 @@ export default function BookASessionComponent() {
       <div className="container" data-aos="fade-up">
 
         <div className="section-title">
-          <h2>Try-out training</h2>
-          <p>Boek een gratis try-out training</p>
+          <h2>{props.title}</h2>
+          <p>{props.subtitle}</p>
         </div>
 
         <div className="row">

@@ -33,7 +33,10 @@
         "blocks.gallery",
         "blocks.course",
         "blocks.contact",
-        "blocks.about"
+        "blocks.about",
+        "blocks.training-form",
+        "blocks.team",
+        "blocks.faq"
       ]
     }
   }

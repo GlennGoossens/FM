@@ -21,7 +21,7 @@ export default function ContentSection({
         <BlocksRenderer content={content} />
       </div>
       <div className="col-lg-5 col-md-12 img-item">
-        <Image src={getStrapiMedia(image.url) ?? ""} alt={image.alternativeText} className="img-fluid" width={500} height={500} />
+        <Image src={getStrapiMedia(image.url) ?? ""} alt={image.alternativeText ?? ""} className="img-fluid" width={500} height={500} />
       </div>
     </div>
   );

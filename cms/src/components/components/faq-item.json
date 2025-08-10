@@ -5,13 +5,13 @@
   },
   "options": {},
   "attributes": {
-    "Question": {
+    "question": {
       "type": "string"
     },
-    "Answer": {
+    "answer": {
       "type": "text"
     },
-    "Category": {
+    "category": {
       "type": "enumeration",
       "enum": [
         "Algemeen",

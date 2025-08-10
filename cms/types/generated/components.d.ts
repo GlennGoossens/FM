@@ -42,7 +42,10 @@ export interface BlocksFaq extends Struct.ComponentSchema {
     displayName: 'FAQ';
   };
   attributes: {
-    FaqItem: Schema.Attribute.Component<'components.faq-item', true>;
+    contactButton: Schema.Attribute.Component<'components.button', false>;
+    contactText: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'components.faq-item', true>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -131,6 +134,17 @@ export interface BlocksTestimonial extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksTrainingForm extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_training_forms';
+  info: {
+    displayName: 'Training Form';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksWhyUs extends Struct.ComponentSchema {
   collectionName: 'components_blocks_why_uses';
   info: {
@@ -192,11 +206,11 @@ export interface ComponentsFaqItem extends Struct.ComponentSchema {
     displayName: 'FAQ Item';
   };
   attributes: {
-    Answer: Schema.Attribute.Text;
-    Category: Schema.Attribute.Enumeration<
+    answer: Schema.Attribute.Text;
+    category: Schema.Attribute.Enumeration<
       ['Algemeen', 'Personal Training', 'WOD']
     >;
-    Question: Schema.Attribute.String;
+    question: Schema.Attribute.String;
   };
 }
 
@@ -206,8 +220,8 @@ export interface ComponentsIconBlocks extends Struct.ComponentSchema {
     displayName: 'Icon Blocks';
   };
   attributes: {
+    content: Schema.Attribute.Blocks;
     icon: Schema.Attribute.String;
-    text: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
 }
@@ -411,6 +425,7 @@ declare module '@strapi/strapi' {
       'blocks.section': BlocksSection;
       'blocks.team': BlocksTeam;
       'blocks.testimonial': BlocksTestimonial;
+      'blocks.training-form': BlocksTrainingForm;
       'blocks.why-us': BlocksWhyUs;
       'components.button': ComponentsButton;
       'components.class-card': ComponentsClassCard;

@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-interface FaqItemProps {
+export interface FaqItemProps {
   number: number;
   question: string;
   answer: string | string[];
+  category: string;
   delay?: number;
 }
 
@@ -11,7 +12,8 @@ export default function FaqItem({
   number,
   question,
   answer,
-  delay = 200
+  category,
+  delay = 200 
 }: FaqItemProps) {
   const [open, setOpen] = useState(false);
 

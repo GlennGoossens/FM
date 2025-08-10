@@ -36,7 +36,7 @@ const populateQuery = {
         },
         "blocks.why-us": {
           populate: {
-            fields: ["title", "featureTitle","content"],
+            fields: ["title", "featureTitle", "content"],
             image: {
               fields: ["url", "alternativeText", "name", "width", "height"]
             },
@@ -46,7 +46,13 @@ const populateQuery = {
           }
         },
         "blocks.testimonial": {
-          populate: true
+          populate: {
+            items: {
+              populate: {
+                fields: ["text", "name", "date", "stars"]
+              }
+            }
+          }
         },
         "blocks.section": {
           populate: true
@@ -67,6 +73,35 @@ const populateQuery = {
           populate: true
         },
         "blocks.contact": {
+          populate: true
+        },
+        "blocks.faq": {
+          populate: {
+            items: {
+              populate: true
+            },
+            contactButton: {
+              populate: true
+            },
+            fields: ["title", "subtitle", "contactText"]
+          }
+        },
+        "blocks.team": {
+          populate: {
+          teamMembers: {
+            populate: {
+              fields: ["name", "jobTitle"],
+              image: {
+                fields: ["url", "alternativeText", "name", "width", "height"]
+              },
+              socialMediaLinks: {
+                populate: true
+              }
+            },
+            }
+          }
+        },
+        "blocks.training-form": {
           populate: true
         }
       }

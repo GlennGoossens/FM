@@ -17,10 +17,8 @@ function blockRenderer(block: Block, index: number) {
             return <AboutComponent key={index} {...block} />;
         case "blocks.why-us":
             return <AboutUsComponent key={index} {...block} />;
-        case "blocks.testimonials":
+        case "blocks.testimonial":
             return <TestimonialsComponent key={index} {...block} />;
-        case "blocks.book-a-session":
-            return <BookASessionComponent key={index} {...block} />;
         case "blocks.gallery":
             return <GalleryComponent key={index} {...block} />;
         case "blocks.faq":
@@ -29,6 +27,8 @@ function blockRenderer(block: Block, index: number) {
             return <TeamComponent key={index} {...block} />;
         case "blocks.contact":
             return <ContactComponent key={index} {...block} />;
+        case "blocks.training-form":
+            return <BookASessionComponent key={index} {...block} />;
         default:
             return null;
     }

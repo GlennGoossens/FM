@@ -1,48 +1,28 @@
+import { getStrapiMedia } from "@/lib/utils";
 import TeamMember from "./team-member.component";
+import { TeamBlock } from "@/lib/types";
 
-export default function TeamComponent() {
-    const teamMembers = [
-      {
-        src: "/assets/img/FM-76-geknipt.jpg",
-        name: "Walter White",
-        role: "Master Chef",
-        description: "Description",
-        delay: 100
-      },
-      {
-        src: "/assets/img/FM-76-geknipt.jpg",
-        name: "Sarah Jhonson",
-        role: "Patissier",
-        description: "Description",
-        delay: 200
-      },
-      {
-        src: "/assets/img/FM-76-geknipt.jpg",
-        name: "William Anderson",
-        role: "Cook",
-        description: "Description",
-        delay: 300
-      }
-    ];
+export default function TeamComponent(props: TeamBlock) {
+    const { teamMembers } = props;
 
     return (
         <section id="team" className="team">
       <div className="container" data-aos="fade-up">
 
         <div className="section-title">
-          <h2>Team</h2>
-          <p>Our Coaches</p>
+          <h2>{props.title}</h2>
+          <p>{props.subtitle}</p>
         </div>
 
         <div className="row">
           {teamMembers.map((member, index) => (
             <TeamMember
               key={index}
-              src={member.src}
+              image={member.image}
               name={member.name}
-              role={member.role}
-              description={member.description}
-              delay={member.delay}
+              jobTitle={member.jobTitle}
+              description={member.description ?? ""}
+              delay={index * 100}
             />
           ))}
         </div>

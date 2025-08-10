@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_training_forms",
+  "info": {
+    "displayName": "Training Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

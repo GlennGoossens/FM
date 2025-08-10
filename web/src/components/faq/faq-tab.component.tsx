@@ -1,6 +1,5 @@
 interface FaqTabProps {
   id: string;
-  icon: string;
   label: string;
   isActive?: boolean;
   onClick?: () => void;
@@ -8,7 +7,6 @@ interface FaqTabProps {
 
 export default function FaqTab({
   id,
-  icon,
   label,
   isActive = false,
   onClick
@@ -26,7 +24,7 @@ export default function FaqTab({
         aria-selected={isActive}
         onClick={onClick}
       >
-        <i className={`${icon} me-2`}></i>{label}
+        {label}
       </button>
     </li>
   );

@@ -23,9 +23,9 @@ export default function ServiceOffer({
   const contentSection = (
     <div className="col-md-12 col-lg-6">
       <h4 className={`aanbod-title`}>{title}</h4>
-      <p className="aanbod-content">
+      <div className="aanbod-content">
         <BlocksRenderer content={content} />
-      </p>
+      </div>
       <a className="price-btn" href={button.url}>
         {button.text}
       </a>
@@ -34,7 +34,7 @@ export default function ServiceOffer({
 
   const imageSection = (
     <div className="col-lg-5 col-md-12 img-item">
-      <Image src={imageUrl} alt={image.alternativeText} className="img-fluid" width={image.width} height={image.height} />
+      <Image src={imageUrl} alt={image.alternativeText ?? ""} className="img-fluid" width={image.width} height={image.height} />
     </div>
   );
 

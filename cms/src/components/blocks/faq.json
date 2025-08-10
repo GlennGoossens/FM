@@ -8,10 +8,21 @@
     "title": {
       "type": "string"
     },
-    "FaqItem": {
+    "subtitle": {
+      "type": "string"
+    },
+    "items": {
       "type": "component",
       "component": "components.faq-item",
       "repeatable": true
+    },
+    "contactText": {
+      "type": "string"
+    },
+    "contactButton": {
+      "type": "component",
+      "component": "components.button",
+      "repeatable": false
     }
   },
   "config": {}
