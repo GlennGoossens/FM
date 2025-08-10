@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksAbout extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_abouts';
+  info: {
+    displayName: 'About';
+  };
+  attributes: {
+    classCards: Schema.Attribute.Component<'components.class-card', true>;
+    classCardsTitle: Schema.Attribute.String;
+    serviceOffers: Schema.Attribute.Component<'components.service-offer', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksContact extends Struct.ComponentSchema {
   collectionName: 'components_blocks_contacts';
   info: {
@@ -67,7 +80,7 @@ export interface BlocksHero extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files'>;
     link: Schema.Attribute.Component<'components.link', false>;
     subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -124,7 +137,10 @@ export interface BlocksWhyUs extends Struct.ComponentSchema {
     displayName: 'Why Us';
   };
   attributes: {
-    items: Schema.Attribute.Component<'components.why-us-item', true>;
+    content: Schema.Attribute.Blocks;
+    features: Schema.Attribute.Component<'components.why-us-item', true>;
+    featureTitle: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String;
   };
 }
@@ -139,6 +155,20 @@ export interface ComponentsButton extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'primary'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsClassCard extends Struct.ComponentSchema {
+  collectionName: 'components_components_class_cards';
+  info: {
+    displayName: 'Class Card';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'components.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    schedule: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -243,6 +273,20 @@ export interface ComponentsPricingGroupItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsServiceOffer extends Struct.ComponentSchema {
+  collectionName: 'components_components_service_offers';
+  info: {
+    displayName: 'Service Offer';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'components.button', false>;
+    content: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    reverse: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsSocialMediaLink extends Struct.ComponentSchema {
   collectionName: 'components_components_social_media_links';
   info: {
@@ -302,9 +346,61 @@ export interface ComponentsWhyUsItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_shared_open_graphs';
+  info: {
+    displayName: 'openGraph';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    ogDescription: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    ogImage: Schema.Attribute.Media<'images'>;
+    ogTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
+    ogType: Schema.Attribute.String;
+    ogUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    canonicalURL: Schema.Attribute.String;
+    keywords: Schema.Attribute.Text;
+    metaDescription: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+        minLength: 50;
+      }>;
+    metaImage: Schema.Attribute.Media<'images'>;
+    metaRobots: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    metaViewport: Schema.Attribute.String;
+    openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
+    structuredData: Schema.Attribute.JSON;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.about': BlocksAbout;
       'blocks.contact': BlocksContact;
       'blocks.course': BlocksCourse;
       'blocks.faq': BlocksFaq;
@@ -317,6 +413,7 @@ declare module '@strapi/strapi' {
       'blocks.testimonial': BlocksTestimonial;
       'blocks.why-us': BlocksWhyUs;
       'components.button': ComponentsButton;
+      'components.class-card': ComponentsClassCard;
       'components.course-item': ComponentsCourseItem;
       'components.faq-item': ComponentsFaqItem;
       'components.icon-blocks': ComponentsIconBlocks;
@@ -325,10 +422,13 @@ declare module '@strapi/strapi' {
       'components.paragraph-with-image': ComponentsParagraphWithImage;
       'components.pricing-group': ComponentsPricingGroup;
       'components.pricing-group-item': ComponentsPricingGroupItem;
+      'components.service-offer': ComponentsServiceOffer;
       'components.social-media-link': ComponentsSocialMediaLink;
       'components.team-member': ComponentsTeamMember;
       'components.testimonial-item': ComponentsTestimonialItem;
       'components.why-us-item': ComponentsWhyUsItem;
+      'shared.open-graph': SharedOpenGraph;
+      'shared.seo': SharedSeo;
     }
   }
 }

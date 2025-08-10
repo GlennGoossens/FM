@@ -1,25 +1,9 @@
-import HeroComponent from "@/components/hero.component";
-import AboutComponent from "@/components/about/about.component";
-import AboutUsComponent from "@/components/about-us/about-us.components";
-import TestimonialsComponent from "@/components/testimonials/testimonials.component";
-import BookASessionComponent from "@/components/forms/book-a-session.component";
-import GalleryComponent from "@/components/gallery/gallery.component";
-import ContactComponent from "@/components/contact/contact.component";
-import FaqComponent from "@/components/faq/faq.component";
-import TeamComponent from "@/components/team/team.component";
+import { getPageBySlug } from "@/content/page-loader";
+import { BlockRenderer } from "@/components/block-renderer";
 
-export default function Home() {
-  return (
-    <div>
-      <HeroComponent />
-      <AboutComponent />
-      <AboutUsComponent />
-      <TestimonialsComponent />
-      <BookASessionComponent />
-      <GalleryComponent />
-      <FaqComponent />
-      <TeamComponent />
-      <ContactComponent />
-    </div>
-  );
+export default async function Home() {
+  const data = await getPageBySlug("home", "published");
+  const blocks = data?.blocks;
+  if(!blocks) return null;
+  return <div>{blocks ? <BlockRenderer blocks={blocks} /> : null}</div>;
 }

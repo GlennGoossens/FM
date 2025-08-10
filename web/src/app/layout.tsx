@@ -7,22 +7,25 @@ import "swiper/css/pagination";
 import HeaderComponent from "@/components/header.component";
 import "./globals.css";
 import FooterComponent from "@/components/footer.component";
+import { loadGlobalData } from "@/content/global-loader";
 
 export const metadata: Metadata = {
   title: "Functional Movementz",
   description: "Functional Movementz",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+const globalData = await loadGlobalData();
+
   return (
     <html lang="nl">
       <body>
-        <TopBarComponent />
-        <HeaderComponent />
+        <TopBarComponent banner={globalData.data.banner} />
+        <HeaderComponent logo={globalData.data.logo} cta={globalData.data.cta} />
         {children}
         <FooterComponent />
         <a href="#" className="back-to-top d-flex align-items-center justify-content-center">

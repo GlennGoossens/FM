@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@strapi/blocks-react-renderer": "^1.0.2",
+    "@strapi/client": "^1.4.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "next": "15.3.3",

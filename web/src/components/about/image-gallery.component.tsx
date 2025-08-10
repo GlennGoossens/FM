@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getStrapiMedia } from "@/lib/utils";
 
 interface ImageGalleryProps {
   images: Array<{
@@ -9,13 +10,14 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images, className = "" }: ImageGalleryProps) {
+  const imageUrls = images.map(image => getStrapiMedia(image.src));
   return (
     <div className={`row ${className}`}>
-      {images.map((image, index) => (
+      {imageUrls.map((imageUrl, index) => (
         <div key={index} className="col-lg-4 mt-4 mt-lg-0">
           <Image 
-            src={image.src} 
-            alt={image.alt || ""} 
+            src={imageUrl ?? ""} 
+            alt={images[index].alt || ""} 
             className="img-fluid" 
             width={500} 
             height={500} 

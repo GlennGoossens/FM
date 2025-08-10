@@ -14,7 +14,7 @@
       ]
     },
     "title": {
-      "type": "string"
+      "type": "text"
     },
     "subtitle": {
       "type": "text"

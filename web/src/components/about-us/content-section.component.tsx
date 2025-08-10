@@ -1,33 +1,27 @@
+import { ImageObject } from "@/lib/types";
+import { getStrapiMedia } from "@/lib/utils";
+import { BlocksContent, BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 
 interface ContentSectionProps {
   title: string;
-  paragraphs: string[];
-  imageSrc: string;
-  imageAlt?: string;
+  content: BlocksContent;
+  image: ImageObject;
 }
 
 export default function ContentSection({
   title,
-  paragraphs,
-  imageSrc,
-  imageAlt = ""
+  content,
+  image
 }: ContentSectionProps) {
   return (
     <div className="row">
       <div className="col-md-12 col-lg-6">
         <h4 className="text-center">{title}</h4>
-        {paragraphs.map((paragraph, index) => (
-          <div key={index}>
-            <p className={index === 0 ? "aanbod-first-p personal-training" : " aanbod-second-p personal-training"}>
-              {paragraph}
-            </p>
-            {index < paragraphs.length - 1 && <br />}
-          </div>
-        ))}
+        <BlocksRenderer content={content} />
       </div>
       <div className="col-lg-5 col-md-12 img-item">
-        <Image src={imageSrc} alt={imageAlt} className="img-fluid" width={500} height={500} />
+        <Image src={getStrapiMedia(image.url) ?? ""} alt={image.alternativeText} className="img-fluid" width={500} height={500} />
       </div>
     </div>
   );

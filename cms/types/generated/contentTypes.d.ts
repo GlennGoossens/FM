@@ -425,6 +425,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.gallery',
         'blocks.course',
         'blocks.contact',
+        'blocks.about',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -597,12 +598,14 @@ export interface PluginNavigationAudience extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    key: Schema.Attribute.UID<''>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::navigation.audience'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

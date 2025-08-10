@@ -968,8 +968,9 @@ section {
   .why-us p{
     margin: 0 2rem;
   }
-  .why-us p.aanbod-first-p.personal-training{
-    margin-left: 2rem !important;
+  .why-us p .aanbod-content{
+    margin: 0 !important;
+    font-size: 13pt !important;
   }
 }
 
@@ -2324,4 +2325,8 @@ font-weight: 500;
   display: inline-block;
   padding-right: 1rem;
   vertical-align: middle;
+}
+
+.pl-5{
+  padding-left: 5px;
 }

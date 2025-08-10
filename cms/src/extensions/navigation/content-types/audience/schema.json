@@ -11,5 +11,13 @@
     "draftAndPublish": false
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "key": {
+      "type": "uid",
+      "targetField": ""
+    }
+  }
 }

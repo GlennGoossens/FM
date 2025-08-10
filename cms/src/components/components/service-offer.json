@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_blocks_why_uses",
+  "collectionName": "components_components_service_offers",
   "info": {
-    "displayName": "Why Us"
+    "displayName": "Service Offer"
   },
   "options": {},
   "attributes": {
@@ -15,17 +15,17 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files"
+        "images"
       ]
     },
-    "featureTitle": {
-      "type": "string"
+    "reverse": {
+      "type": "boolean",
+      "default": false
     },
-    "features": {
+    "button": {
       "type": "component",
-      "component": "components.why-us-item",
-      "repeatable": true
+      "component": "components.button",
+      "repeatable": false
     }
   },
   "config": {}

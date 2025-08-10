@@ -1,22 +1,21 @@
-interface FeatureBoxProps {
-  number: string;
+export interface FeatureBoxProps {
+  number: number;
   title: string;
-  description: string;
-  className?: string;
+  text: string;
 }
 
 export default function FeatureBox({
   number,
   title,
-  description,
-  className = ""
+  text
 }: FeatureBoxProps) {
+  const className = number > 3 ? "mt-5" : "";
   return (
     <div className={`col-lg-4 ${className}`}>
       <div className="box">
-        <span>{number}</span>
+        <span>{number.toString().padStart(2, "0")}</span>
         <h4>{title}</h4>
-        <p>{description}</p>
+        <p>{text}</p>
       </div>
     </div>
   );

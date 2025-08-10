@@ -1,48 +1,40 @@
 import Image from "next/image";
+import { BlocksRenderer, type BlocksContent } from "@strapi/blocks-react-renderer";
+import { ImageObject } from "@/lib/types";
+import { ButtonObject } from "@/lib/types";
+import { getStrapiMedia } from "@/lib/utils";
 
-interface ServiceOfferProps {
+export interface ServiceOfferProps {
   title: string;
-  firstParagraph: string;
-  secondParagraph: string;
-  imageSrc: string;
-  imageAlt?: string;
-  buttonText: string;
-  buttonHref: string;
+  content: BlocksContent;
+  image: ImageObject;
+  button: ButtonObject;
   reverse?: boolean;
-  className?: string;
 }
 
 export default function ServiceOffer({
   title,
-  firstParagraph,
-  secondParagraph,
-  imageSrc,
-  imageAlt = "",
-  buttonText,
-  buttonHref,
-  reverse = false,
-  className = ""
+  content,
+  image,
+  button,
+  reverse = false
 }: ServiceOfferProps) {
+  const imageUrl = getStrapiMedia(image.url) ?? "";
   const contentSection = (
     <div className="col-md-12 col-lg-6">
-      <h4 className={`aanbod-title ${className}`}>{title}</h4>
-      <p className="aanbod-first-p personal-training">
-        {firstParagraph}
-        <br />
-        <br />
+      <h4 className={`aanbod-title`}>{title}</h4>
+      <p className="aanbod-content">
+        <BlocksRenderer content={content} />
       </p>
-      <p className="aanbod-second-p">
-        {secondParagraph}
-      </p>
-      <a className="price-btn" href={buttonHref}>
-        {buttonText}
+      <a className="price-btn" href={button.url}>
+        {button.text}
       </a>
     </div>
   );
 
   const imageSection = (
     <div className="col-lg-5 col-md-12 img-item">
-      <Image src={imageSrc} alt={imageAlt} className="img-fluid" width={500} height={500} />
+      <Image src={imageUrl} alt={image.alternativeText} className="img-fluid" width={image.width} height={image.height} />
     </div>
   );
 

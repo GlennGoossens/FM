@@ -32,7 +32,8 @@
         "blocks.header-banner",
         "blocks.gallery",
         "blocks.course",
-        "blocks.contact"
+        "blocks.contact",
+        "blocks.about"
       ]
     }
   }

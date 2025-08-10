@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_abouts",
+  "info": {
+    "displayName": "About"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "classCardsTitle": {
+      "type": "string"
+    },
+    "serviceOffers": {
+      "type": "component",
+      "component": "components.service-offer",
+      "repeatable": true
+    },
+    "classCards": {
+      "type": "component",
+      "component": "components.class-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

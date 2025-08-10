@@ -1,12 +1,21 @@
+import { getStrapiMedia } from "@/lib/utils";
 import Image from "next/image";
+import { ImageObject, ButtonObject } from "@/lib/types";
 
-export default function HeaderComponent() {
+export type HeaderProps = {
+  logo: ImageObject;
+  cta: ButtonObject;
+}
+
+export default function HeaderComponent({ logo, cta }: HeaderProps) {
+  const logoUrl = getStrapiMedia(logo.url) ?? "";
+
   return (
     <header id="header" className="fixed-top d-flex align-items-cente">
     <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
       <a href="index.html" className="logo me-auto me-lg-0">
-        <Image src="/assets/img/FM_logo_nobg.png" alt="Functional Movementz Logo" width={60} height={57} />
+        {logoUrl && <Image src={logoUrl} alt="Functional Movementz Logo" width={60} height={57} />}
       </a>
 
       <nav id="navbar" className="navbar order-last order-lg-0">
@@ -19,7 +28,7 @@ export default function HeaderComponent() {
         </ul>
         <i className="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      <a href="#book-a-session" className="book-a-table-btn scrollto d-none d-lg-flex">Gratis Try-out training</a>
+      <a href={cta.url} className="book-a-table-btn scrollto d-none d-lg-flex">{cta.text}</a>
 
     </div>
   </header>

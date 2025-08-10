@@ -1,17 +1,18 @@
-interface ClassCardProps {
+import { ButtonObject, ImageObject } from "@/lib/types";
+
+export interface ClassCardProps {
   title: string;
   schedule: string;
   description: string;
-  buttonText?: string;
-  buttonHref?: string;
+  button: ButtonObject;
+  image: ImageObject;
 }
 
 export default function ClassCard({
   title,
   schedule,
   description,
-  buttonText = "Schrijf je nu in voor deze groepsles!",
-  buttonHref = "#contact"
+  button
 }: ClassCardProps) {
   return (
     <div className="col-lg-4">
@@ -24,7 +25,7 @@ export default function ClassCard({
           <br />
           {description}
         </p>
-        <a className="classes-btn" href={buttonHref}>{buttonText}</a>
+        <a className="classes-btn" href={button.url}>{button.text}</a>
       </div>
     </div>
   );
