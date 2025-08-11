@@ -16,7 +16,8 @@ type ComponentType =
     "blocks.faq" |
     "blocks.team" |
     "blocks.contact" |
-    "blocks.training-form";
+    "blocks.training-form" |
+    "blocks.pricing";
 
 interface Base<T extends ComponentType, D extends object = object> {
     __component: T;
@@ -35,7 +36,8 @@ GalleryBlock |
 FaqBlock | 
 TeamBlock | 
 ContactBlock |
-TrainingFormBlock;
+TrainingFormBlock |
+PricingBlock;
 
 export type HeroBlock = Base<"blocks.hero", {
     title: string;
@@ -85,6 +87,11 @@ export interface ContactBlock extends Base<"blocks.contact"> {
 export interface TrainingFormBlock extends Base<"blocks.training-form"> {
     title: string;
     subtitle: string;
+}
+export interface PricingBlock extends Base<"blocks.pricing"> {
+    title: string;
+    subtitle: string;
+    groups: PricingGroupProps[];
 }
 
 export type ImageObject = {

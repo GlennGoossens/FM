@@ -29,6 +29,8 @@ function blockRenderer(block: Block, index: number) {
             return <ContactComponent key={index} {...block} />;
         case "blocks.training-form":
             return <BookASessionComponent key={index} {...block} />;
+        case "blocks.pricing":
+            return <PricingComponent key={index} {...block} />;
         default:
             return null;
     }

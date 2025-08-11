@@ -6,7 +6,6 @@ import FaqItem from "./faq-item.component";
 import { FaqBlock } from "@/lib/types";
 
 export default function FaqComponent(props: FaqBlock) {
-  console.log(props);
     const [activeTab, setActiveTab] = useState("algemeen");
 
     const faqTabs = [
