@@ -5,6 +5,7 @@ import { FeatureBoxProps } from "@/components/about-us/feature-box.component";
 import { TestimonialItemProps } from "@/components/testimonials/testimonial-item.component";
 import { TeamMemberProps } from "@/components/team/team-member.component";
 import { FaqItemProps } from "@/components/faq/faq-item.component";
+import { PricingGroupProps } from "@/components/pricing/pricing-group.component";
 
 type ComponentType =
     "blocks.hero" | 
@@ -106,6 +107,11 @@ export type ButtonObject = {
     text: string;
     url: string;
     style: "primary" | "secondary";
+}
+
+export type LinkObject = {
+    text: string;
+    url: string;
 }
 
 export type BannerObject = {

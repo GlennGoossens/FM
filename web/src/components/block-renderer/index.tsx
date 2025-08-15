@@ -8,6 +8,7 @@ import GalleryComponent from "@/components/gallery/gallery.component";
 import ContactComponent from "@/components/contact/contact.component";
 import FaqComponent from "@/components/faq/faq.component";
 import TeamComponent from "@/components/team/team.component";
+import PricingComponent from "@/components/pricing/pricing.component";
 
 function blockRenderer(block: Block, index: number) {
     switch (block.__component) {

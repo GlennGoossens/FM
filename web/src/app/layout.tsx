@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import "swiper/css/pagination";
-import HeaderComponent from "@/components/header.component";
+import HeaderWrapper from "@/components/header-wrapper.component";
 import "./globals.css";
 import FooterComponent from "@/components/footer.component";
 import { loadGlobalData } from "@/content/global-loader";
@@ -25,7 +25,7 @@ const globalData = await loadGlobalData();
     <html lang="nl">
       <body>
         <TopBarComponent banner={globalData.data.banner} />
-        <HeaderComponent logo={globalData.data.logo} cta={globalData.data.cta} />
+        <HeaderWrapper logo={globalData.data.logo} cta={globalData.data.cta} />
         {children}
         <FooterComponent />
         <a href="#" className="back-to-top d-flex align-items-center justify-content-center">

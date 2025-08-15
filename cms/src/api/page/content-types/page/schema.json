@@ -38,6 +38,11 @@
         "blocks.team",
         "blocks.faq"
       ]
+    },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

@@ -1,4 +1,4 @@
-export const BreadcrumbComponent = ({ path }: { path: string }) => {
+export default function BreadcrumbComponent({ path }: { path: string }) {
     const paths = path.split("/").filter(path => path !== "");
     const pathWithoutLast = paths.slice(0, -1);
     const lastPath = paths[paths.length - 1];

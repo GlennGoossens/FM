@@ -5,11 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "time": {
+    "title": {
       "type": "string"
     },
     "price": {
-      "type": "integer"
+      "type": "decimal"
     },
     "link": {
       "type": "component",
@@ -23,6 +23,16 @@
         "images",
         "files"
       ]
+    },
+    "priceGroup": {
+      "type": "enumeration",
+      "enum": [
+        "/TRAINING",
+        "P.P/ TRAINING"
+      ]
+    },
+    "description": {
+      "type": "string"
     }
   },
   "config": {}

@@ -58,7 +58,25 @@ const populateQuery = {
           populate: true
         },
         "blocks.pricing": {
-          populate: true
+          populate: {
+            fields: ["title"],
+            groups: {
+              fields: ["title", "subtitle"],
+              populate: {
+                items: {
+                  populate: {
+                    image: {
+                    fields: ["url", "alternativeText", "name", "width", "height"]
+                  },
+                  link: {
+                    populate: true
+                  },
+                  fields: ["title", "price", "priceGroup","description"]
+                  }
+                }
+              }
+            }
+          }
         },
         "blocks.hero": {
           populate: true
@@ -103,6 +121,16 @@ const populateQuery = {
         },
         "blocks.training-form": {
           populate: true
+        }
+      }
+    },
+    SEO: {
+      populate: {
+        metaImage: true,
+        openGraph: {
+          populate: {
+            ogImage: true
+          }
         }
       }
     }

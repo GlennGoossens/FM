@@ -280,10 +280,12 @@ export interface ComponentsPricingGroupItem extends Struct.ComponentSchema {
     displayName: 'Pricing Group Item';
   };
   attributes: {
+    description: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files'>;
     link: Schema.Attribute.Component<'components.link', false>;
-    price: Schema.Attribute.Integer;
-    time: Schema.Attribute.String;
+    price: Schema.Attribute.Decimal;
+    priceGroup: Schema.Attribute.Enumeration<['/TRAINING', 'P.P/ TRAINING']>;
+    title: Schema.Attribute.String;
   };
 }
 
